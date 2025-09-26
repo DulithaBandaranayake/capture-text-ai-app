@@ -1,6 +1,6 @@
 # Maintainer: Dulitha Bandaranayake <dubudeveloper@gmail.com>
 pkgname=capture-text-ai
-pkgver=1.1
+pkgver=1.2
 pkgrel=1
 pkgdesc="Capture image and extract text using OCR with PyQt6 GUI"
 arch=('any')
@@ -16,7 +16,7 @@ depends=('python'
          'tesseract-data-eng')
 makedepends=('python-setuptools')
 source=("$pkgname-$pkgver.tar.gz::https://github.com/DulithaBandaranayake/capture-text-ai-app/archive/refs/tags/v$pkgver.tar.gz")
-sha256sums=('d000f1c761ebdaa5beb55bd37daea523e1a7e92d646b444278f95b24d0f77c33')
+sha256sums=('c43df1f09cd1eb47544dc3a522771b09e701d41954bd0a678c7b2263a7a053d5')
 
 build() {
     cd "$srcdir/capture-text-ai-app-$pkgver"
