@@ -1,6 +1,6 @@
 # Maintainer: Dulitha Bandaranayake <dubudeveloper@gmail.com>
 pkgname=capture-text-ai
-pkgver=1.2
+pkgver=1.3
 pkgrel=1
 pkgdesc="Capture image and extract text using OCR with PyQt6 GUI"
 arch=('any')
