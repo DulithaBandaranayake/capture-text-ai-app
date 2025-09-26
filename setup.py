@@ -10,7 +10,6 @@ def get_data_files():
     """Specify additional data files to include in the package."""
     data_files = [
         ('/usr/local/share/capture-text-ai/Icon', ['Icon/Icon.png', 'Icon/screenshot_icon.png', 'Icon/screenshot_icon._dark.png']),
-        ('/usr/local/share/applications', ['CaptureTextAi.desktop']),
     ]
     return data_files
 
