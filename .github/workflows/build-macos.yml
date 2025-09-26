@@ -1,0 +1,100 @@
+name: Build macOS DMG
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:  # Allow manual triggering
+
+jobs:
+  build-macos:
+    runs-on: macos-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    - name: Install system dependencies
+      run: |
+        brew install tesseract
+        brew install create-dmg
+    
+    - name: Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install pyinstaller
+    
+    - name: Convert icon to .icns
+      run: |
+        # Create iconset directory
+        mkdir -p Icon.iconset
+        
+        # Convert PNG to different sizes for .icns
+        sips -z 16 16     Icon/Icon.png --out Icon.iconset/icon_16x16.png
+        sips -z 32 32     Icon/Icon.png --out Icon.iconset/icon_16x16@2x.png
+        sips -z 32 32     Icon/Icon.png --out Icon.iconset/icon_32x32.png
+        sips -z 64 64     Icon/Icon.png --out Icon.iconset/icon_32x32@2x.png
+        sips -z 128 128   Icon/Icon.png --out Icon.iconset/icon_128x128.png
+        sips -z 256 256   Icon/Icon.png --out Icon.iconset/icon_128x128@2x.png
+        sips -z 256 256   Icon/Icon.png --out Icon.iconset/icon_256x256.png
+        sips -z 512 512   Icon/Icon.png --out Icon.iconset/icon_256x256@2x.png
+        sips -z 512 512   Icon/Icon.png --out Icon.iconset/icon_512x512.png
+        sips -z 1024 1024 Icon/Icon.png --out Icon.iconset/icon_512x512@2x.png
+        
+        # Create .icns file
+        iconutil -c icns Icon.iconset
+    
+    - name: Build macOS app
+      run: |
+        pyinstaller CaptureTextAi.spec
+    
+    - name: Verify app bundle
+      run: |
+        ls -la dist/
+        if [ ! -d "dist/CaptureTextAi.app" ]; then
+          echo "Error: App bundle not created!"
+          exit 1
+        fi
+        echo "✅ App bundle created successfully"
+    
+    - name: Create DMG
+      run: |
+        # Get version from git tag or use date
+        VERSION=${GITHUB_REF#refs/tags/v}
+        if [ "$VERSION" = "$GITHUB_REF" ]; then
+          VERSION=$(date +%Y%m%d)
+        fi
+        
+        create-dmg \
+          --volname "CaptureTextAi Installer" \
+          --window-pos 200 120 \
+          --window-size 600 400 \
+          --icon-size 100 \
+          --icon "CaptureTextAi.app" 175 190 \
+          --hide-extension "CaptureTextAi.app" \
+          --app-drop-link 425 190 \
+          "CaptureTextAi-v${VERSION}-macOS.dmg" \
+          "dist/"
+    
+    - name: Upload DMG artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: CaptureTextAi-macOS-DMG
+        path: "*.dmg"
+        retention-days: 30
+    
+    - name: Create Release (if tagged)
+      if: startsWith(github.ref, 'refs/tags/v')
+      uses: softprops/action-gh-release@v1
+      with:
+        files: "*.dmg"
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
