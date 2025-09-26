@@ -1,0 +1,4 @@
+PyQt6
+pytesseract
+Pillow
+opencv-python

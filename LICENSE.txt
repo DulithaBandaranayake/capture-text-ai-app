@@ -1,0 +1,27 @@
+Capture Text Ai - License Agreement
+
+Copyright (c) 2024 DuBu. All rights reserved.
+
+1. License Grant
+   This license permits you to use, install, and run the Capture Text Ai application for personal and commercial purposes. You may not copy, redistribute, or modify the application in any form.
+
+2. Restrictions
+   - You may not sell, lease, rent, or sublicense the application.
+   - You may not reverse engineer, decompile, or disassemble the application.
+   - You may not copy or redistribute the application or its components, except for backup purposes.
+
+3. Disclaimer
+   The application is provided "as is" without warranty of any kind, either express or implied. The author is not responsible for any damages or losses arising from the use or inability to use the application.
+
+4. Termination
+   This license is effective until terminated. Your rights under this license will terminate automatically without notice if you fail to comply with any term of this license.
+
+5. Governing Law
+   This license shall be governed by and construed in accordance with the laws of Sri Lanka.
+
+By using this application, you agree to the terms of this license agreement.
+
+For any questions or concerns regarding this license, please contact dubudeveloper@gmail.com.
+
+DuBu
+2024

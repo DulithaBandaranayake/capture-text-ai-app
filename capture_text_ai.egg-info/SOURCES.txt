@@ -1,0 +1,16 @@
+CaptureTextAi.desktop
+CaptureTextAi.py
+LICENSE.txt
+MANIFEST.in
+README.md
+setup.py
+Icon/Icon.ico
+Icon/Icon.png
+Icon/screenshot_icon._dark.png
+Icon/screenshot_icon.png
+capture_text_ai.egg-info/PKG-INFO
+capture_text_ai.egg-info/SOURCES.txt
+capture_text_ai.egg-info/dependency_links.txt
+capture_text_ai.egg-info/entry_points.txt
+capture_text_ai.egg-info/requires.txt
+capture_text_ai.egg-info/top_level.txt

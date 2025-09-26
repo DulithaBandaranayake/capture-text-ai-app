@@ -1,0 +1,2 @@
+[console_scripts]
+capture-text-ai = CaptureTextAi:main
