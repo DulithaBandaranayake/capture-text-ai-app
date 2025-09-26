@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=CaptureTextAI
 Comment=Capture screenshots and extract text using OCR
-Exec=/usr/bin/CaptureTextAi.py
+Exec=python3 /usr/bin/CaptureTextAi.py
 Icon=capture-text-ai
 Terminal=false
 Type=Application
