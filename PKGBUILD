@@ -16,7 +16,7 @@ depends=('python'
          'tesseract-data-eng')
 makedepends=('python-setuptools')
 source=("$pkgname-$pkgver.tar.gz::https://github.com/dulithadabare/capture-text-ai-app/archive/refs/tags/v$pkgver.tar.gz")
-sha256sums=('SKIP')  # You'll need to update this with the actual checksum
+sha256sums=('d000f1c761ebdaa5beb55bd37daea523e1a7e92d646b444278f95b24d0f77c33')
 
 build() {
     cd "$srcdir/capture-text-ai-app-$pkgver"
