@@ -6,6 +6,9 @@ on:
       - 'v*'
   workflow_dispatch:  # Allow manual triggering
 
+permissions:
+  contents: write  # Required for creating releases
+
 jobs:
   build-macos:
     runs-on: macos-latest
@@ -89,12 +92,21 @@ jobs:
         path: "*.dmg"
         retention-days: 30
     
+    - name: List created files
+      run: |
+        echo "=== Created DMG files ==="
+        ls -la *.dmg
+        echo "=== DMG file details ==="
+        file *.dmg
+    
     - name: Create Release (if tagged)
       if: startsWith(github.ref, 'refs/tags/v')
-      uses: softprops/action-gh-release@v1
+      uses: softprops/action-gh-release@v2
       with:
         files: "*.dmg"
         draft: false
         prerelease: false
+        generate_release_notes: true
+        fail_on_unmatched_files: false
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
