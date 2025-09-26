@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=CaptureTextAi
-Comment=Capture screenshots and extract text
-Exec=CaptureTextAi
-Icon=/usr/local/share/Icon/Icon.png
-Terminal=false
-Type=Application
-Categories=Utility;
