@@ -41,6 +41,8 @@ Thumbs.db
 
 # Ignore virtual environment
 /.venv/
+/venv/
+/env/
 
 # qtcreator generated files
 *.pro.user*
@@ -87,10 +89,20 @@ pkg/
 src/
 *.pkg.tar.*
 *.log
+.SRCINFO
 
 # IDE
 .vscode/
 .idea/
+
+# Temporary files
+cv2
+io
+np
+os
+sys
+tempfile
+*.spec
 
 # Binaries
 # --------
