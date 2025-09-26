@@ -51,14 +51,14 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon='Icon/Icon.ico'
+    icon='Icon/Icon.ico'  # Windows icon for EXE
 )
 
 # macOS app bundle
 app = BUNDLE(
     exe,
     name='CaptureTextAi.app',
-    icon='Icon/Icon.icns',
+    icon='Icon.icns',  # This will be created by the GitHub Actions workflow
     bundle_identifier='com.dubu.capturetextai',
     version='1.3.0',
     info_plist={
