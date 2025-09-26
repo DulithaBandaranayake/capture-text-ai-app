@@ -93,7 +93,7 @@ The easiest way to install on Arch Linux using AUR:
 
 ### macOS
 
-1. **Download the macOS package** from the [releases page](https://github.com/DulithaBandaranayake/capture-text-ai-app/releases).
+1. **Download the macOS package** from the [releases page](https://github.com/DulithaBandaranayake/capture-text-ai-app/releases/tag/v1.3.3).
 2. **Install using one of these methods**:
 
    **Option 1: Direct Installation**
