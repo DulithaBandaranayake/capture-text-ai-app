@@ -15,7 +15,7 @@ def get_data_files():
 
 setup(
     name='capture-text-ai',
-    version='1.0',
+    version='1.1',
     description='Capture image and extract text',
     long_description=read_file('README.md'),  # Ensure you have a README.md file
     long_description_content_type='text/markdown',
